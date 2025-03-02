@@ -48,4 +48,13 @@ public class Controller {
         runRepository.delete(id);
     }
 
+    @GetMapping("/count")
+    Integer count() {
+        return runRepository.count();
+    }
+
+    @GetMapping("/by-location/{location}")
+    List<Run> runsByLocation(@PathVariable String location) {
+        return runRepository.findByLocation(location);
+    }
 }
